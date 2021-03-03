@@ -63,8 +63,8 @@ web/servlet/LoginOutServlet.java
  web.servlet.LoginOutServlet
 web/servlet/CategoryServlet.java
  web.servlet.CategoryServlet
-web/servlet/ChangeCountServlet.java
- web.servlet.ChangeCountServlet
+web/servlet/LoginServlet.java
+ web.servlet.LoginServlet
 dao/OrderDao.java
  dao.OrderDao
 exception/ActiveCodeException.java
@@ -83,5 +83,5 @@ web/servlet/AddOrderServlet.java
  web.servlet.AddOrderServlet
 domain/User.java
  domain.User
-web/servlet/LoginServlet.java
- web.servlet.LoginServlet
+web/servlet/ChangeCountServlet.java
+ web.servlet.ChangeCountServlet
