@@ -1,6 +1,6 @@
 # TheMall
  数码商城
- a digital mall based on Bootstrap, Java
+ a online mall based on Bootstrap, Java
 
 ### 技术栈
 + Java
@@ -41,4 +41,13 @@
 
 6.	订单页面
  <img width="416" alt="image" src="https://user-images.githubusercontent.com/60865350/109760057-08ea2c80-7c29-11eb-94d4-227fe36d481f.png">
+ 
+7. 商品管理界面
+<img width="416" alt="Screen Shot 2021-07-11 at 11 27 09 AM" src="https://user-images.githubusercontent.com/60865350/125181942-45afdb00-e23c-11eb-9b54-0c60dbcb1c47.png">
+
+9. 用户管理
+<img width="416" alt="Screen Shot 2021-07-11 at 11 27 29 AM" src="https://user-images.githubusercontent.com/60865350/125181947-51030680-e23c-11eb-953d-489b04648f36.png">
+
+10. 订单管理
+<img width="416" alt="Screen Shot 2021-07-11 at 11 30 57 AM" src="https://user-images.githubusercontent.com/60865350/125181955-5d875f00-e23c-11eb-9463-2e6b245c5b9c.png">
 
