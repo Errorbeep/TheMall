@@ -7,9 +7,32 @@ public class Product {
     private int pnum; // 数量
     private int c3code;
     private String imgurl; // 图片路径
+
+    public Product(int id, String name, double price, int pnum, int c3code, String imgurl, String description, String color, int totalSaleNum, int state) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.pnum = pnum;
+        this.c3code = c3code;
+        this.imgurl = imgurl;
+        this.description = description;
+        this.color = color;
+        this.totalSaleNum = totalSaleNum;
+        this.state = state;
+    }
+
+    public void setState(int state) {
+        this.state = state;
+    }
+
+    public int getState() {
+        return state;
+    }
+
     private String description; // 描述
     private String color;
     private int totalSaleNum; // 总销售数量
+    private int state;
 
     public int getId() {
         return id;

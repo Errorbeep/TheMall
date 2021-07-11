@@ -11,6 +11,7 @@ import javax.mail.internet.AddressException;
 import javax.security.auth.login.LoginException;
 import java.security.GeneralSecurityException;
 import java.sql.SQLException;
+import java.util.List;
 
 public class UserService {
     /* 1.注册操作		START*/
@@ -81,7 +82,11 @@ public class UserService {
                 // 判断用户是否激活
                 if (user.getState() == 1) {
                     return user;
-                } else {
+                }
+                else if(user.getState() == 2) {
+                    throw new ActiveCodeException("用户已被锁定");
+                }
+                else {
                     throw new ActiveCodeException("用户未激活");
                 }
             } else {
@@ -95,6 +100,32 @@ public class UserService {
     }
 
     /*3.登录操作		END*/
+
+    public List<User> findAll() throws SQLException {
+        UserDao dao = new UserDao();
+        return dao.findAll();
+    }
+
+
+    public void deleteUserBuId(int id) throws SQLException {
+        UserDao dao = new UserDao();
+        dao.deleteUserById(id);
+    }
+
+    public User findUserById(int id) throws SQLException {
+        UserDao dao = new UserDao();
+        return dao.findUserBuId(id);
+    }
+
+    public void updateState(int id, int newState) throws SQLException {
+        UserDao dao = new UserDao();
+        dao.updateState(id, newState);
+    }
+
+    public void delSelect(int[] id) throws SQLException {
+        UserDao dao = new UserDao();
+        dao.delSelect(id);
+    }
 }
 
 

@@ -30,7 +30,8 @@ public class CategoryServlet extends HttpServlet {
                 request.getRequestDispatcher("/NewFile3.jsp").forward(request, response);
                 return;
             }
-            request.getRequestDispatcher("/addProduct.jsp").forward(request, response);
+            request.getRequestDispatcher("/admin_addProduct.jsp").forward(request, response);
+            // request.getRequestDispatcher("/addProduct.jsp").forward(request, response);
             return;
         } catch (SQLException e) {
             e.printStackTrace();

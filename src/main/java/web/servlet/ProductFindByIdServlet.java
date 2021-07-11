@@ -37,7 +37,8 @@ public class ProductFindByIdServlet extends HttpServlet {
                 request.getRequestDispatcher("/productInfo_user.jsp").forward(request, response);
                 return;
             }
-            request.getRequestDispatcher("/productInfo_admin.jsp").forward(request, response);
+            request.getRequestDispatcher("admin_productInfo.jsp").forward(request, response);
+            // request.getRequestDispatcher("/productInfo_admin.jsp").forward(request, response);
             return;
 
         } catch (SQLException e) {

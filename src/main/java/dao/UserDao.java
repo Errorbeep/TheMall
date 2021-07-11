@@ -3,9 +3,11 @@ package dao;
 import domain.User;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
+import org.apache.commons.dbutils.handlers.BeanListHandler;
 import utils.DataSourceUtils;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public class UserDao {
     //1. 注册操作
@@ -27,6 +29,12 @@ public class UserDao {
         QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
 
         return runner.query(sql, new BeanHandler<User>(User.class), activeCode);
+    }
+
+    public User findUserBuId(int id) throws SQLException {
+        String sql = "select * from users where id = ?";
+        QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
+        return runner.query(sql, new BeanHandler<>(User.class), id);
     }
 
     //3. 激活用户
@@ -54,6 +62,39 @@ public class UserDao {
             return runner.query(sql, new BeanHandler<User>(User.class), username,
                     password);
         }
+    }
+
+    // 查询所有用户
+    public List<User> findAll() throws SQLException {
+        String sql = "select * from users";
+        QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
+        return runner.query(sql, new BeanListHandler<User>(User.class));
+
+    }
+
+    // 删除用户
+    public void deleteUserById(int id) throws SQLException {
+        String sql = "delete from users where id = ?";
+        QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
+        runner.update(sql, id);
+    }
+
+    public void updateState(int id, int newState) throws SQLException {
+        String sql = "update users set state = ? where id = ?";
+        QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
+        runner.update(sql, newState, id);
+    }
+
+    // 批量删除
+    public void delSelect(int[] id) throws SQLException {
+        String sql = "delete from users where id=?";
+        QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
+        Object[][] ids = new Object[id.length][1];
+        for (int i = 0; i < id.length; i++) {
+            ids[i][0] = id[i];//一维数组变成 二维数组batch方法的执行
+        }
+
+        runner.batch(sql, ids);
     }
 
 

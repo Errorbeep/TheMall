@@ -94,7 +94,7 @@
     <div>
         <c:set var="s" value="100" />
         <c:forEach items="${pro1}" var="p" varStatus="vs" begin="0" end="4" step="1">
-            <c:if test="${fn:substring(p.c3code,0,2)=='51' }">
+            <c:if test="${fn:substring(p.c3code,0,2)=='51' && p.state == 1}">
                 <div class="product">
                     <img src="home${p.imgurl}" onclick="findProductById('${p.id}')">
                     <span class="brand">${p.name}</span>
@@ -111,7 +111,7 @@
     <a href="javascript:void(0)" onclick="phone('智能设备')">智能设备</a>
     <div>
         <c:forEach items="${pro2}" var="p" varStatus="vs" begin="0" end="4" step="1">
-            <c:if test="${fn:substring(p.c3code,0,2)=='52' }">
+            <c:if test="${fn:substring(p.c3code,0,2)=='52' && p.state == 1}">
                 <div class="product">
                     <img src="home${p.imgurl}" onclick="findProductById('${p.id}')">
                     <span class="brand">${p.name}</span>
@@ -128,7 +128,7 @@
     <a href="javascript:void(0)" onclick="phone('电脑')">电脑</a>
     <div>
         <c:forEach items="${pro3}" var="p" varStatus="vs" begin="0" end="4" step="1">
-            <c:if test="${fn:substring(p.c3code,0,2)=='53' }">
+            <c:if test="${fn:substring(p.c3code,0,2)=='53' && p.state == 1}">
                 <div class="product">
                     <img src="home${p.imgurl}" onclick="findProductById('${p.id}')">
                     <span class="brand">${p.name}</span>
@@ -147,7 +147,7 @@
         <div class="slide">
             <ul>
                 <c:forEach items="${pro4}" var="p" varStatus="vs" begin="0" end="4" step="1">
-                    <c:if test="${fn:substring(p.c3code,0,2)=='54' }">
+                    <c:if test="${fn:substring(p.c3code,0,2)=='54' && p.state == 1}">
                         <li>
                             <div class="product">
                                 <img src="home${p.imgurl}" onclick="findProductById('${p.id}')">
@@ -163,7 +163,7 @@
             </ul>
             <ul>
                 <c:forEach items="${pro4}" var="p" varStatus="vs" begin="0" end="4" step="1">
-                    <c:if test="${fn:substring(p.c3code,0,2)=='54' }">
+                    <c:if test="${fn:substring(p.c3code,0,2)=='54' && p.state == 1}">
                         <li>
                             <div class="product">
                                 <img src="home${p.imgurl}" onclick="findProductById('${p.id}')">

@@ -30,6 +30,10 @@ public class ProductService {
         dao.update(product);
     }
 
+    public void updateState(int id, int newState) throws SQLException {
+        dao.updateState(id, newState);
+    }
+
     //按条件查询
     public List<Product> simpleSelect(String field, String msg) throws SQLException {
         return dao.simpleSelect(field, msg);

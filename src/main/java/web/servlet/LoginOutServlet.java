@@ -16,11 +16,6 @@ public class LoginOutServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        /*
-          正常的cookie只能在一个应用中共享，即一个cookie只能由创建它的应用获得。
-          	可在同一应用服务器内共享方法：设置cookie.setPath("/");
-         */
-        // 注销功能就是销毁session
 
         request.getSession().invalidate();
 

@@ -51,13 +51,15 @@ function tocart() {
 
     <div class="content">
         <c:forEach items="${pb1.pro}" var="p" varStatus="vs">
-				<div class="product">
-					<img src="home${p.imgurl}" onclick="findProductById('${p.id}')">
-        			<span class="brand">${p.name}</span>
-        			<span class="title">${p.description}</span>
-        			<span class="price">${p.price}</span>
-        			<a href="${pageContext.request.contextPath}/ProductFindByIdServlet?id=${p.id}"><em class="fast-buy"></em></a>
-				</div>
+            <c:if test="${p.state == 1}">
+                <div class="product">
+                    <img src="home${p.imgurl}" onclick="findProductById('${p.id}')">
+                    <span class="brand">${p.name}</span>
+                    <span class="title">${p.description}</span>
+                    <span class="price">${p.price}</span>
+                    <a href="${pageContext.request.contextPath}/ProductFindByIdServlet?id=${p.id}"><em class="fast-buy"></em></a>
+                </div>
+            </c:if>
 		</c:forEach>
     </div>
     <ul class="pagination">

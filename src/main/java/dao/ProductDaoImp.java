@@ -13,17 +13,17 @@ import java.util.List;
 public class ProductDaoImp implements ProductDao {
     //商品添加
     public void addProduct(Product product) throws SQLException {
-        String sql = "insert into products values(null,?,?,?,?,?,?,?)";
+        String sql = "insert into products values(null,?,?,?,?,?,?,?,?)";
 
         QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
 
         runner.update(sql, product.getName(), product.getPrice(),product.getPnum(),
-                product.getC3code(), product.getImgurl(), product.getDescription(), product.getColor());
+                product.getC3code(), product.getImgurl(), product.getDescription(), product.getColor(), product.getState());
     }
 
     //查询所有商品信息
     public List<Product> findAll() throws SQLException {
-        String sql = "select * from products ";
+        String sql = "select * from products";
         QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
         return runner.query(sql, new BeanListHandler<Product>(Product.class));
     }
@@ -38,10 +38,10 @@ public class ProductDaoImp implements ProductDao {
     //编辑商品信息
     public void update(Product p) throws SQLException {
         String sql = "update products set name=?,price=?,pnum=?,c3code=?,"
-                + "imgurl=?,description=?,color=? where id=?";
+                + "imgurl=?,description=?,color=?, state = ? where id=?";
         QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
         runner.update(sql, p.getName(), p.getPrice(), p.getPnum(), p.getC3code(),
-                p.getImgurl(), p.getDescription(), p.getColor(), p.getId());
+                p.getImgurl(), p.getDescription(), p.getColor(), p.getState(), p.getId());
     }
 
     //按条件查询
@@ -83,6 +83,13 @@ public class ProductDaoImp implements ProductDao {
         QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
         int i =	runner.update(sql, id);
         return i;
+    }
+
+    @Override
+    public void updateState(int id, int newState) throws SQLException {
+        String sql = "update products set state = ? where id = ?";
+        QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
+        runner.update(sql, newState, id);
     }
 
     //批量删除商品信息

@@ -50,8 +50,6 @@ public class LoginServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        // 2.校验用户名密码数据是否为空为空，
-        //如果用户名密码为空，即Map集合中拥有返回的错误信息，即Map的集合有大小
         Map<String, String> map = user.validation();
 
         if (map.size() != 0) {

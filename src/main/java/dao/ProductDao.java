@@ -12,6 +12,9 @@ public interface ProductDao {
     //删除单个商品信息
     public int delById(int id) throws SQLException;
 
+    // 修改商品状态
+    public void updateState(int id, int newState) throws SQLException;
+
     //批量删除勾选的客户信息
     public void delSelect(int[] id) throws SQLException;
 
