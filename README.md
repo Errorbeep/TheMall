@@ -15,9 +15,9 @@
 + 浏览/购买商品
 
 ### 运行环境及命令
-+ java 15.0.1
-+ mysql 8.0.23
-+ gradle 6.8.3
++ java 15+
++ mysql 8+
++ gradle 6.8+
 
 编译`gradle build`
 运行`gradle appRun`
