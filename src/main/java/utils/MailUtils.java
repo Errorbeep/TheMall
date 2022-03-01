@@ -18,28 +18,19 @@ public class MailUtils {
         prop.put("mail.host","smtp.126.com" );
         prop.put("mail.transport.protocol", "smtp");
         prop.put("mail.smtp.auth", true);
-        //1.创建sesssion
         Session session=Session.getInstance(prop);
-        //开启session的调试模式，可以查看当前邮件发送状态
         session.setDebug(true);
 
-        //2.通过session获取Transport对象（发送邮件的核心API）
+        
         Transport ts=session.getTransport();
-        //3.通过邮件用户名密码（授权码 ）链接
-        //ts.connect("17780713604@163.com", "hslzym1314");
-        ts.connect("sorcererme@126.com", "CDVDZABETXUBBEDN");
+        ts.connect("xxxx@xxx", "xxxxx");
 
-        //4.创建邮件
         Message msg=createSimpleMail(session,email,emailInfo);
-
-        //5.发送电子邮件
         ts.sendMessage(msg, msg.getAllRecipients());
     }
     private static Message createSimpleMail(Session session, String email, String emailInfo) throws AddressException, MessagingException {
         MimeMessage mm=new MimeMessage(session);
-        //设置发件人
-        mm.setFrom(new InternetAddress("sorcererme@126.com"));
-        //设置收件人
+        mm.setFrom(new InternetAddress("xxx@xxx"));
         mm.setRecipient(Message.RecipientType.TO, new InternetAddress(email));
         mm.setSubject("测试邮件");
         mm.setContent(emailInfo, "text/html;charset=gbk");
