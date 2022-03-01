@@ -1,6 +1,6 @@
 # TheMall
  数码商城
- a online mall based on Bootstrap, Java
+ a online mall based on JavaWeb
 
 ### 技术栈
 + Java
